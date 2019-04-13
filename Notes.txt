@@ -1,0 +1,5 @@
+Revise: Break/Continue/Pass, as I didn't use them while creating the game challenge.
+while TRUE: and how it works
+using list index instead of a counter to indicate the item in the previous loop.
+recheck the Guessing Game Challenge to see the things that I missed or should have used.
+go into more details about Booleans (in statement can be used to check for True and False)
