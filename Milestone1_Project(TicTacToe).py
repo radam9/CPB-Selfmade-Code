@@ -20,6 +20,7 @@ def turn(b,num,player,p):
         x = int(input(f"It's {p[player]}'s turn!, Enter a location: "))
         if x < 1 or x > 9:
             print('Please enter a value between 1 and 9')
+            continue
         else:
           if x in b:
               print('That spot is already taken! Choose another one.')
@@ -65,13 +66,20 @@ def tictactoe():
     p[0] = input("Enter the First player's name: ")
     p[1] = input("Enter the Second player's name: ")
     #Requesting the start order
-    start = int(input(f'Who will play first?\nChoose 1 for {p[0]}\nChoose 2 for {p[1]}\nChoose 3 for Random : '))
-    if start == 1:#Player 1 starts
-        player = bool()
-    elif start == 2:#Player 2 Starts
-        player = bool(1)
-    else:#Choosing starting player Randomly
-        player = bool(random.randint(0,1))
+    while True:
+        start = int(input(f'Who will play first?\nChoose 1 for {p[0]}\nChoose 2 for {p[1]}\nChoose 3 for Random : '))
+        if not (1<=start<=3):
+            print('Please enter 1,2 or 3!')
+            continue
+        elif start == 1:#Player 1 starts
+            player = bool()
+            break
+        elif start == 2:#Player 2 Starts
+            player = bool(1)
+            break
+        else:#Choosing starting player Randomly
+            player = bool(random.randint(0,1))
+            break
     b = [] #initiating empty board, also used as a numer of turns counter
     num = [' ']*10 #Initiating the empty board slots
     end = 0 #Program Close
