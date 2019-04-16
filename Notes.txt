@@ -3,3 +3,61 @@ while TRUE: and how it works
 using list index instead of a counter to indicate the item in the previous loop.
 recheck the Guessing Game Challenge to see the things that I missed or should have used.
 go into more details about Booleans (in statement can be used to check for True and False)
+---------
+def box2():
+    def box1():
+        total = price + tip
+        print(total)
+    price = 1
+    tip = 1
+    box1()
+box2()
+
+#why does this work:
+
+def box1():
+    total = price + tip
+    print(total)
+
+def box2():
+    price = 1
+    tip = 1
+    box1()
+box2()
+
+# and this doesn't work, if the following was written in Learning Python 5th
+
+# When you use an unqualified name inside a function, Python searches up to four
+# scopes—the local (L) scope, then the local scopes of any enclosing (E) defs and
+# lambdas, then the global (G) scope, and then the built-in (B) scope—and stops at
+# the first place the name is found. If the name is not found during this search, Python
+# reports an error. (page 448)
+[Read about lexical scoping]
+----------
+
+#Answered Questions
+1:  functions and when do they need input parameters? (Milestone project 1)
+A:  The functions need the input parameters in the 'Milestone Project 1' case,
+    as seen in the functions (board, turn, check) because the functions are running
+    inside another function 'tictactoe()'.
+    All the variables in tictactoe that are used in the functions (board, turn, check)
+    are neither considered 'Global Variables' nor 'Enclosed Variables'.
+    The scope (Global/Enlosed/Local) is relative to the location where the function
+    was defined rather than where it was called. (Check Lexical Scoping)
+
+2:  do I need to input function parameters if the variables are global?
+A:  No you don't, but the values of the 'Global Variables' will stay constant
+    until you reassign them. The reassignment can be done from within the function
+    using the 'global' declaration at the beginning of the function. or by
+    equating the variable with the function assuming the function is returning
+    the required variable. (x = global variable) -> (func(): return x)
+    -> (x = func()).
+
+3:  function return and how to use it and what to return
+A:  If an empty return is in a function, the default return will be 'None'.
+    The objects you set after the return statement become the result of the function.
+    So if a func() has a return True, then x = func() will set x as True.
+    If the return is a list, then x will be equal to the returned list.
+    If the return has more than one returned value, return x , True, List
+    then you can use x, a, b = func() to equate x,a and b with the results of
+    the function.
