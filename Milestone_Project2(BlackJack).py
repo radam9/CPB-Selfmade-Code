@@ -86,6 +86,10 @@ class Player:
         else:
             print(f'You lost! your new balance is: {self.balance}')
 
+    def draw(self,amount,player):
+        player.balance += amount
+        print(player.name +' and Dealer tie!!')
+
     def reset(self):#reset the status and hand of player
         self.busts = False
         self.stands = False
@@ -175,6 +179,7 @@ def blackjack():#Main game function
         while (not player.stands) and (not player.busts):
             hitstand(player,deck)
             if player.stands == True:
+                print(player.name +" Stands, Dealer's Turn!!")
                 show(player,dealer)
                 break
             show(player,dealer)
@@ -191,6 +196,8 @@ def blackjack():#Main game function
                 elif dealer.value() > player.value():
                     player.lose()
                     break
+                elif dealer.value() == player.value():
+                    player.draw(bet,player)
                 else:
                     dealer.hit(deck)
                     show(player,dealer)
